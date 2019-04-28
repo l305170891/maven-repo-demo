@@ -54,7 +54,7 @@
                         <include>**/*</include>
                     </includes>
                     <repositoryName>maven-repo-demo</repositoryName><!--对应github上创建的仓库名称 name-->
-                    <repositoryOwner>l305170891</repositoryOwner><!--github 仓库所有者-->
+                    <repositoryOwner>l305170891</repositoryOwner><!--github 仓库所有者 不是账号-->
                 </configuration>
 
                 <executions>
