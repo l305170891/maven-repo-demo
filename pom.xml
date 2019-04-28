@@ -11,12 +11,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--服务器同 setting.xml 中一直(待确认), -->
         <github.global.server>github</github.global.server>
     </properties>
 
 
     <build>
         <plugins>
+            <!--打包插件-->
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>2.8.1</version>
@@ -25,6 +27,7 @@
                 </configuration>
             </plugin>
 
+            <!--源码-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -39,6 +42,7 @@
                 </executions>
             </plugin>
 
+            <!--github上传插件,用于修改后的发布,执行 mvn clean deploy 自动打包上传到github-->
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
@@ -46,15 +50,19 @@
                 <configuration>
                     <message >Maven artifacts for ${project.version}</message>
                     <noJekyll>true</noJekyll>
-                    <outputDirectory>${project.build.directory}/repository</outputDirectory><!--本地jar地址-->
-                    <branch>refs/heads/master</branch><!--分支-->
+                    <!--本地jar地址-->
+                    <outputDirectory>${project.build.directory}/repository</outputDirectory>
+                    <!--分支-->
+                    <branch>refs/heads/master</branch>
                     <merge>true</merge>
 
                     <includes>
                         <include>**/*</include>
                     </includes>
-                    <repositoryName>maven-repo-demo</repositoryName><!--对应github上创建的仓库名称 name-->
-                    <repositoryOwner>l305170891</repositoryOwner><!--github 仓库所有者 不是账号-->
+                    <!--对应github上创建的仓库名称 name-->
+                    <repositoryName>maven-repo-demo</repositoryName>
+                    <!--github 仓库所有者 不是账号-->
+                    <repositoryOwner>l305170891</repositoryOwner>
                 </configuration>
 
                 <executions>
