@@ -1,0 +1,13 @@
+target/*
+*.jar
+target/
+**/target/**
+*.class
+.idea/**
+.idea
+ebike-garage-admin/target/
+**/*.iml
+.sonar/
+sonar-scanner-2.6.1/
+*.iml
+*.DS_Store
