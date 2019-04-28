@@ -6,7 +6,7 @@
 
     <groupId>com.luojian.github.repo.demo</groupId>
     <artifactId>maven-repo-demo</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
 
     <properties>
