@@ -17,7 +17,7 @@
 # 第二步：配置部署jar到本地1、 配置本地mvn服务    
 
 1、设置本地maven的配置文件settings.xml,找到其中的servers 标签，加入如下 配置：
-```
+```xml
         <server>
             <id>github</id>
             <username>*****</username>
@@ -28,8 +28,8 @@
 2、修改pom文件发布本地仓库    
 在需要发布的项目中的pom文件里的 标签下加入以下插件：
 
-然后运行 mvn clean deploy 命令，即可在对应项目中的target/repository目录下找到本地的jar
-```
+然后运行 `mvn clean deploy` 命令，即可在对应项目中的target/repository目录下找到本地的jar
+```xml
         <build>
             <plugins>
                 <plugin>
@@ -44,14 +44,14 @@
 ```
 # 第三步：发布jar到远程github上
 1、修改pom文件，在properties 中添加下列属性
-```
+```xml
         <properties>
             <github.global.server>github</github.global.server>
         </properties>
 ```
 
 2、添加修改插件
-```
+```xml
         <build>
             <plugins>
                 <!--打包插件-->
@@ -116,7 +116,7 @@
         </build>
 ```
 
-再次执行 mvn clean deploy命令即可发布到github上了 。
+再次执行 `mvn clean deploy` 命令即可发布到github上了 。
 若出现如下错误请完成第一步第2点配置：
 ```
     [ERROR] Failed to execute goal com.github.github:site-maven-plugin:0.12:site (default) on project rfcore: Error creating commit: Invalid request.
@@ -125,9 +125,8 @@
     [ERROR] -> [Help 1]
 ```
 
-# 第四步：在项目中使用发布到github上的jar包pom文件中添加github仓库
-然后添加依赖即可
-```
+# 第四步：在项目中使用发布到github上的jar包pom文件中添加github仓库,然后添加依赖即可
+```xml
         <dependency>
     		<groupId>com.luojian.github.repo.demo</groupId>
     		<artifactId>maven-repo-demo</artifactId>
